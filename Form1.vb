@@ -70,10 +70,17 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Timer1.Stop()
-        _httpClient.Dispose()
-        _imageBuffer.Dispose()
-        _stream.Dispose()
+        Try
+            Timer1.Stop()
+            _httpClient.Dispose()
+            _imageBuffer.Dispose()
+            _stream.Dispose()
+        Catch ex As Exception
+
+        Finally
+            Application.Exit()
+        End Try
+
     End Sub
 
     Private Async Sub btnStartDetection_Click(sender As Object, e As EventArgs) Handles btnStartDetection.Click
