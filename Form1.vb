@@ -27,7 +27,7 @@ Public Class Form1
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        If _stream IsNot Nothing Then
+        If _stream IsNot Nothing And _isDetectionRunning Then
             Try
                 ' Read data from the stream
                 Dim bytesRead As Integer = _stream.Read(_buffer, 0, _buffer.Length)
@@ -63,7 +63,7 @@ Public Class Form1
                     Next
                 End If
             Catch ex As Exception
-                MessageBox.Show("Error reading from stream: " & ex.Message)
+                ' MessageBox.Show("Error reading from stream: " & ex.Message)
                 Console.WriteLine("Error reading from stream: " & ex.Message)
             End Try
         End If
