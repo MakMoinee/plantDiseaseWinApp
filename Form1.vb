@@ -22,7 +22,7 @@ Public Class Form1
             Console.WriteLine("Connected to video stream.")
         Catch ex As Exception
             MessageBox.Show("Error connecting to video stream: " & ex.Message)
-            Console.WriteLine("Error connecting to video stream: " & ex.Message)
+            'Console.WriteLine("Error connecting to video stream: " & ex.Message)
         End Try
     End Sub
 
